@@ -5,7 +5,8 @@ using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(LineRenderer))]
 public class DataPatternGenerator : MonoBehaviour {
-	[System.Serializable]
+	#region Classes
+	[Serializable]
 	private class NoiseLayer {
 		[SerializeField, Min(0.005f)] private Vector2 _frequencyRange = new Vector2(0.2f, 0.5f);
 		[SerializeField] private Vector2 _amplitudeRange = new Vector2(0.1f, 0.3f);
@@ -27,8 +28,10 @@ public class DataPatternGenerator : MonoBehaviour {
 			return randomVec.normalized * RandomRange(_amplitudeRange.x, _amplitudeRange.y);
 		}
 	}
+	#endregion
 
 
+	#region Settings
 	[SerializeField] private NoiseLayer _layer = new NoiseLayer();
 
 	[Space]
@@ -41,9 +44,21 @@ public class DataPatternGenerator : MonoBehaviour {
 
 	[SerializeField] private LineRenderer _source = null;
 	[SerializeField] private LineRenderer _target = null;
+	#endregion
 
+
+	#region Settings
 	private static int _currentSeed = -15000;
+	private static Vector3[] _sourcePoints = new Vector3[50];
+	private static List<Vector3> _noisedPoints = new List<Vector3>(400);
+	private static List<Vector3> _snappedPoints = new List<Vector3>(600);
 
+	//Pseudo random axis select
+	private static int _currentRandomizedAxis = 0;
+	#endregion
+
+
+	#region Generation
 	[ContextMenu("Generate")]
 	private void Generate() {
 		if (_target == null) {
@@ -52,22 +67,24 @@ public class DataPatternGenerator : MonoBehaviour {
 
 		_currentSeed = _seed;
 
-		List<Vector3> points = new List<Vector3>();
 
-		int pointsCount = _source.positionCount;
-		Vector3[] sourcePoints = new Vector3[pointsCount];
-		_source.GetPositions(sourcePoints);
+		_noisedPoints.Clear();
+		_snappedPoints.Clear();
+		int pointsCount = _source.GetPositions(_sourcePoints);
+
 		float maxDistance = 0f;
 
 		float remainingDistance = 0f;
-		Vector3 nextPos = sourcePoints[0];
+		Vector3 nextPos = _sourcePoints[0];
+		
 		for (int i = 0; i < pointsCount - 1; i++) {
-			Vector3 a = sourcePoints[i];
-			Vector3 b = sourcePoints[i + 1];
+			Vector3 a = _sourcePoints[i];
+			Vector3 b = _sourcePoints[i + 1];
 			float distance = Vector3.Magnitude(b - a);
 			float currentDistance = remainingDistance;
+			
 			do {
-				points.Add(nextPos);
+				_noisedPoints.Add(nextPos);
 				Vector3 originPos = Vector3.Lerp(a, b, currentDistance / distance);
 				nextPos = originPos + _layer.GetRandomPosition();
 				currentDistance += _layer.GetNextPointDistance();
@@ -76,12 +93,72 @@ public class DataPatternGenerator : MonoBehaviour {
 			remainingDistance = currentDistance - distance;
 		}
 
-		points.Add(sourcePoints[^1]);
-		_target.positionCount = points.Count;
-		_target.SetPositions(points.ToArray());
+		_noisedPoints.Add(_sourcePoints[pointsCount - 1]);
+
+		for (int i = 0; i < _noisedPoints.Count - 1; i++) {
+			Vector3 a = _noisedPoints[i];
+			Vector3 b = _noisedPoints[i + 1];
+			_snappedPoints.Add(a);
+			Vector3 dir = b - a;
+			Vector3 previousPoint = Vector3.zero;
+
+			_currentRandomizedAxis = Random.RandomRange(0, 2);
+			for (int j = 0; j < 2; j++) {
+				Vector3 point = dir;
+				for (int k = 0; k < 3; k++) {
+					if(k == _currentRandomizedAxis) continue;
+					point[k] = 0f;
+				}
+
+				_currentRandomizedAxis += RandomSign();
+				if (_currentRandomizedAxis > 2) {
+					_currentRandomizedAxis = 0;
+				}else if (_currentRandomizedAxis < 0) {
+					_currentRandomizedAxis = 2;
+				}
+
+				_snappedPoints.Add(point + a + previousPoint);
+				previousPoint = point;
+			}
+		}
+		
+		_snappedPoints.Add(_noisedPoints[^1]);
+		
+		_target.positionCount = _snappedPoints.Count;
+		_target.SetPositions(_snappedPoints.ToArray());
 		_target.widthMultiplier = _width;
 	}
 
+	private static float RandomRange(float min, float max) {
+		Random.InitState(_currentSeed);
+		float rand = Random.Range(min, max);
+		_currentSeed++;
+		return rand;
+	}
+
+	private static int RandomSign() {
+		Random.InitState(_currentSeed);
+		float random = Random.value;
+		_currentSeed++;
+		if (random < 0.5f) {
+			return -1;
+		}
+
+		return 1;
+	}
+	
+	private void CreateTarget() {
+		var go = new GameObject("Generated");
+		go.transform.SetParent(transform, false);
+		go.transform.localPosition = Vector3.zero;
+		_target = go.AddComponent<LineRenderer>();
+		_target.useWorldSpace = false;
+	}
+	#endregion
+
+
+	#region Editor
+#if UNITY_EDITOR
 	private void OnValidate() {
 		if (_source == null) {
 			_source = GetComponent<LineRenderer>();
@@ -94,21 +171,7 @@ public class DataPatternGenerator : MonoBehaviour {
 			Generate();
 		}
 	}
-
-	private void CreateTarget() {
-		var go = new GameObject("Generated");
-		go.transform.SetParent(transform, false);
-		go.transform.localPosition = Vector3.zero;
-		_target = go.AddComponent<LineRenderer>();
-		_target.useWorldSpace = false;
-	}
-
-	private static float RandomRange(float min, float max) {
-		Random.InitState(_currentSeed);
-		float rand = Random.Range(min, max);
-		_currentSeed++;
-		return rand;
-	}
+	
 
 	private void OnDrawGizmosSelected() {
 		Gizmos.color = Color.yellow;
@@ -117,4 +180,6 @@ public class DataPatternGenerator : MonoBehaviour {
 			Gizmos.DrawLine(_source.GetPosition(i) + origin, _source.GetPosition(i + 1) + origin);
 		}
 	}
+#endif
+	#endregion
 }
