@@ -33,6 +33,7 @@ public class DataPatternGenerator : MonoBehaviour {
 
 	#region Settings
 	[SerializeField] private NoiseLayer _layer = new NoiseLayer();
+	[SerializeField] private AnimationCurve _weightOverLength = AnimationCurve.Constant(0f, 1f, 1f);
 
 	[Space]
 	[SerializeField, Min(0f)] private float _width = 0.05f;
@@ -82,13 +83,26 @@ public class DataPatternGenerator : MonoBehaviour {
 			Vector3 b = _sourcePoints[i + 1];
 			float distance = Vector3.Magnitude(b - a);
 			float currentDistance = remainingDistance;
-			
-			do {
-				_noisedPoints.Add(nextPos);
-				Vector3 originPos = Vector3.Lerp(a, b, currentDistance / distance);
+
+			void AddPoint(bool bypassWeight) {
+				float ratio = currentDistance / distance;
+				float globalRatio = (float)i / (float)pointsCount + ratio / (float)pointsCount;
+				float weight = _weightOverLength.Evaluate(globalRatio);
+				
+				if (bypassWeight || weight >= 1.0f || weight > Random.value) {
+					_noisedPoints.Add(nextPos);
+				}
+				
+				Vector3 originPos = Vector3.Lerp(a, b, ratio);
 				nextPos = originPos + _layer.GetRandomPosition();
 				currentDistance += _layer.GetNextPointDistance();
-			} while (currentDistance < distance);
+			}
+			
+			AddPoint(true);
+
+			while (currentDistance < distance) {
+				AddPoint(false);
+			}
 
 			remainingDistance = currentDistance - distance;
 		}
