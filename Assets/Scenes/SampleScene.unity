@@ -1082,8 +1082,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 1157627903
-  m_fontColor: {r: 1, g: 1, b: 1, a: 0.2684256}
+    rgba: 2298478591
+  m_fontColor: {r: 1, g: 1, b: 1, a: 0.53324187}
   m_enableVertexGradient: 1
   m_colorMode: 2
   m_fontColorGradient:
@@ -1373,7 +1373,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _drawRatio: 0.995
   _negativeFillRatio: 0
-  _loops: 3
+  _loops: 2
   _text: ...
   _textMesh: {fileID: 1172253513}
 --- !u!222 &1172253515
@@ -2696,7 +2696,7 @@ PrefabInstance:
     - target: {fileID: 7459111764347786874, guid: 745c939fb1cdc8941880f06cb1daf4f0,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.003
       objectReference: {fileID: 0}
     - target: {fileID: 7459111764347786874, guid: 745c939fb1cdc8941880f06cb1daf4f0,
         type: 3}
@@ -2706,12 +2706,12 @@ PrefabInstance:
     - target: {fileID: 7459111764347786874, guid: 745c939fb1cdc8941880f06cb1daf4f0,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.02
       objectReference: {fileID: 0}
     - target: {fileID: 7459111764347786874, guid: 745c939fb1cdc8941880f06cb1daf4f0,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.99585557
       objectReference: {fileID: 0}
     - target: {fileID: 7459111764347786874, guid: 745c939fb1cdc8941880f06cb1daf4f0,
         type: 3}
@@ -2721,7 +2721,7 @@ PrefabInstance:
     - target: {fileID: 7459111764347786874, guid: 745c939fb1cdc8941880f06cb1daf4f0,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: -0.090949215
       objectReference: {fileID: 0}
     - target: {fileID: 7459111764347786874, guid: 745c939fb1cdc8941880f06cb1daf4f0,
         type: 3}
@@ -2736,7 +2736,7 @@ PrefabInstance:
     - target: {fileID: 7459111764347786874, guid: 745c939fb1cdc8941880f06cb1daf4f0,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: -10.436
       objectReference: {fileID: 0}
     - target: {fileID: 7459111764347786874, guid: 745c939fb1cdc8941880f06cb1daf4f0,
         type: 3}
@@ -2767,6 +2767,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1223073479}
     m_Modifications:
+    - target: {fileID: 4342014452906098790, guid: 0bf4638bb45eaaa46825245ad346645b,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxGradient.key0.b
+      value: 0.18725489
+      objectReference: {fileID: 0}
+    - target: {fileID: 4342014452906098790, guid: 0bf4638bb45eaaa46825245ad346645b,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxGradient.key0.g
+      value: 0.31575197
+      objectReference: {fileID: 0}
     - target: {fileID: 4783717096281216518, guid: 0bf4638bb45eaaa46825245ad346645b,
         type: 3}
       propertyPath: m_RootOrder
