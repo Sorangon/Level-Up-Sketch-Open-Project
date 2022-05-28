@@ -35,39 +35,39 @@ public class DataPatternGenerator : MonoBehaviour {
 	[SerializeField] private NoiseLayer _layer = new NoiseLayer();
 
 	[Space]
-	[SerializeField] private AnimationCurve _weightOverLength = AnimationCurve.Constant(0f, 1f, 1f);
 	[SerializeField, Min(0f)] private float _width = 0.05f;
 
 	[Space]
 	[SerializeField] private int _seed = 150;
-	[SerializeField] private bool _autoGenerate = true;
+	public bool _autoGenerate = true;
 
 	[SerializeField] private LineRenderer _source = null;
 	[SerializeField] private LineRenderer _target = null;
 	#endregion
 
 
-	#region Settings
+	#region Properties
+	public LineRenderer Source => _source;
+	#endregion
+
+	#region Currents
 	private static int _currentSeed = -15000;
 	private static Vector3[] _sourcePoints = new Vector3[50];
 	private static List<Vector3> _noisedPoints = new List<Vector3>(400);
 	private static List<Vector3> _snappedPoints = new List<Vector3>(600);
-
-	//Pseudo random axis select
 	private static int _currentRandomizedAxis = 0;
 	#endregion
 
 
 	#region Generation
 	[ContextMenu("Generate")]
-	private void Generate() {
+	public void Generate() {
 		if (_target == null) {
 			CreateTarget();
 		}
 
 		_currentSeed = _seed;
-
-
+		
 		_noisedPoints.Clear();
 		_snappedPoints.Clear();
 		int pointsCount = _source.GetPositions(_sourcePoints);
@@ -182,4 +182,20 @@ public class DataPatternGenerator : MonoBehaviour {
 	}
 #endif
 	#endregion
+	
+	public void Bake() {
+		int posCount = _target.positionCount;
+		Vector3[] points = new Vector3[posCount];
+		_target.GetPositions(points);
+		
+		_source.positionCount = posCount;
+		_source.SetPositions(points);
+		_source.widthMultiplier = _target.widthMultiplier;
+		_source.numCapVertices = _target.numCapVertices;
+		_source.numCornerVertices = _target.numCornerVertices;
+		_source.sharedMaterials = _target.sharedMaterials;
+		
+		DestroyImmediate(_target.gameObject);
+		DestroyImmediate(this);
+	}
 }
