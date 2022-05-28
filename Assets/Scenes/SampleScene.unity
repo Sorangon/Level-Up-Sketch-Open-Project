@@ -411,7 +411,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: Updatin
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f23994038ecc52f429e8158be7f7d5bb, type: 2}
   m_sharedMaterial: {fileID: 3702785882204055815, guid: f23994038ecc52f429e8158be7f7d5bb,
@@ -1149,7 +1149,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 872415231
+    rgba: 1761607679
   m_fontColor: {r: 1, g: 1, b: 1, a: 0.4}
   m_enableVertexGradient: 1
   m_colorMode: 2
@@ -2704,6 +2704,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2143147068}
   m_PrefabAsset: {fileID: 0}
+--- !u!137 &2143147073 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 5822821947120931875, guid: 7be71bc10cabcd34aa7ab795d279672b,
+    type: 3}
+  m_PrefabInstance: {fileID: 2143147068}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &2143147074 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7813590141776298306, guid: 7be71bc10cabcd34aa7ab795d279672b,
+    type: 3}
+  m_PrefabInstance: {fileID: 2143147068}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2143147078
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2717,6 +2729,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _renderers:
+  - {fileID: 2143147074}
+  - {fileID: 2143147073}
   - {fileID: 1198784956}
 --- !u!1001 &4664302543988889943
 PrefabInstance:
