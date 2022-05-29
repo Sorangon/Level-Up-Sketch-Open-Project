@@ -85,9 +85,9 @@ LineRenderer:
   - {x: 0.3402982, y: 0.8324731, z: 0.48717085}
   - {x: 0.3402982, y: 1.036469, z: 0.48717085}
   - {x: 0.3402982, y: 1.036469, z: 0.23500158}
-  - {x: 0.3402982, y: 1.3280516, z: 0.23500158}
-  - {x: 0.3402982, y: 1.3280516, z: -0.1792712}
-  - {x: 0.003433615, y: 1.3280516, z: -0.17927122}
+  - {x: 0.3402982, y: 1.3497562, z: 0.23500158}
+  - {x: 0.3402982, y: 1.3497562, z: -0.20656663}
+  - {x: 0.003433615, y: 1.3497562, z: -0.20656665}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 0.03
@@ -294,6 +294,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7459111764347786874}
+  - component: {fileID: 7331877521567809158}
+  - component: {fileID: 7331877521567809159}
   m_Layer: 0
   m_Name: FX_DataTrails_Baked
   m_TagString: Untagged
@@ -320,6 +322,45 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &7331877521567809158
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6444145884561244770}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!320 &7331877521567809159
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6444145884561244770}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: 6ae32affca3ea474cbbf7b171dde197f, type: 2}
+  m_InitialState: 1
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: 3961987563911116642, guid: 6ae32affca3ea474cbbf7b171dde197f, type: 2}
+    value: {fileID: 7331877521567809158}
+  m_ExposedReferences:
+    m_References: []
 --- !u!1 &7208021039996841653
 GameObject:
   m_ObjectHideFlags: 0
@@ -548,9 +589,9 @@ LineRenderer:
   - {x: 0.22490756, y: 0.63653016, z: 0.23124103}
   - {x: 0.22490756, y: 0.63653016, z: 0.07070307}
   - {x: 0.22490756, y: 1.0860933, z: 0.07070307}
-  - {x: 0.22490756, y: 1.3580375, z: 0.07070307}
-  - {x: 0.22490756, y: 1.3580375, z: -0.22262645}
-  - {x: 0.003433615, y: 1.3580375, z: -0.22262643}
+  - {x: 0.22490756, y: 1.3442563, z: 0.07070307}
+  - {x: 0.22490756, y: 1.3442563, z: -0.22262645}
+  - {x: 0.003433615, y: 1.3442563, z: -0.22262643}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 0.05
