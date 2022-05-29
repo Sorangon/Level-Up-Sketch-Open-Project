@@ -344,7 +344,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: Updating
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f23994038ecc52f429e8158be7f7d5bb, type: 2}
   m_sharedMaterial: {fileID: 3702785882204055815, guid: f23994038ecc52f429e8158be7f7d5bb,
@@ -1097,7 +1097,7 @@ GameObject:
   - component: {fileID: 905457837}
   - component: {fileID: 905457834}
   m_Layer: 0
-  m_Name: Text_Updating
+  m_Name: Text_LevelUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1111,7 +1111,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 905457832}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1152,7 +1152,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 872415231
+    rgba: 1728053247
   m_fontColor: {r: 1, g: 1, b: 1, a: 0.4}
   m_enableVertexGradient: 1
   m_colorMode: 2
@@ -1359,7 +1359,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: ...
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f23994038ecc52f429e8158be7f7d5bb, type: 2}
   m_sharedMaterial: {fileID: 3702785882204055815, guid: f23994038ecc52f429e8158be7f7d5bb,

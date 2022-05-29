@@ -82,6 +82,16 @@ Properties {
 
 	_CullMode			("Cull Mode", Float) = 0
 	_ColorMask			("Color Mask", Float) = 15
+	
+	[Header(Glitch)]
+	_GlitchVertexDisplacementAmount ("Glitch Vertex Displacement Amount", Range(0.0, 0.1)) = 0.025
+	
+	_GlitchTextDeformAmount     ("Glitch Text Deform Amount", Range(0.0, 1.0)) = 1.0
+	_GlitchTextDeformTiling     ("Glitch Text Deform Tiling", Vector) = (1.0, 5.0, 0.0, 0.0)
+	
+	_GlitchColorAmount ("Glitch Color Amount", Range(0.0, 1.0)) = 0.0
+	_GlitchNoisePixelate ("Glitch Noise Pixelate", Float) = 3
+	_GlitchColorMap     ("Glitch Color Ramp", 2D) = "white" {}
 }
 
 SubShader {
@@ -126,6 +136,7 @@ SubShader {
 		#include "UnityUI.cginc"
 		#include "Assets/TextMesh Pro/Shaders/TMPro_Properties.cginc"
 		#include "Assets/TextMesh Pro/Shaders/TMPro.cginc"
+		#include "Assets/Global/Shaders/Includes/Noise.cginc"
 
 		struct vertex_t {
 			UNITY_VERTEX_INPUT_INSTANCE_ID
@@ -158,6 +169,16 @@ SubShader {
 		float4 _FaceTex_ST;
 		float4 _OutlineTex_ST;
 
+		sampler2D _GlitchColorMap;
+		float _GlitchNoisePixelate;
+		float _GlitchVertexDisplacementAmount;
+	
+		float _GlitchTextDeformAmount;
+		float2 _GlitchTextDeformTiling;
+	
+		float _GlitchColorAmount;
+		
+
 		pixel_t VertShader(vertex_t input)
 		{
 			pixel_t output;
@@ -173,8 +194,10 @@ SubShader {
 			vert.x += _VertexOffsetX;
 			vert.y += _VertexOffsetY;
 
-			float4 vPosition = UnityObjectToClipPos(vert);
+			//Glitch Displacement
+			vert.x += sin(_Time[0] * 900 + vert.y * 18) * _GlitchVertexDisplacementAmount;
 
+			float4 vPosition = UnityObjectToClipPos(vert);
 			float2 pixelSize = vPosition.w;
 			pixelSize /= float2(_ScaleX, _ScaleY) * abs(mul((float2x2)UNITY_MATRIX_P, _ScreenParams.xy));
 			float scale = rsqrt(dot(pixelSize, pixelSize));
@@ -231,13 +254,17 @@ SubShader {
 
 			return output;
 		}
-
+		
 
 		fixed4 PixShader(pixel_t input) : SV_Target
 		{
 			UNITY_SETUP_INSTANCE_ID(input);
 
-			float c = tex2D(_MainTex, input.atlas).a;
+			//Text deformation
+			float distortionNoise = Noise2D(input.textures.xy * _GlitchTextDeformTiling.xy + float2(_Time[0] * 180.0, _Time[0] * 50));
+			float2 noiseDistortion = float2(distortionNoise * _GlitchTextDeformAmount * 0.01, 0.0);
+			float c = tex2D(_MainTex, input.atlas + noiseDistortion).a;
+			
 
 		#ifndef UNDERLAY_ON
 			clip(c - input.param.x);
@@ -255,11 +282,12 @@ SubShader {
 			half4 outlineColor = _OutlineColor;
 
 			faceColor.rgb *= input.color.rgb;
-
+			
 			faceColor *= tex2D(_FaceTex, input.textures.xy + float2(_FaceUVSpeedX, _FaceUVSpeedY) * _Time.y);
 			outlineColor *= tex2D(_OutlineTex, input.textures.zw + float2(_OutlineUVSpeedX, _OutlineUVSpeedY) * _Time.y);
 
 			faceColor = GetColor(sd, faceColor, outlineColor, outline, softness);
+
 
 		#if BEVEL_ON
 			float3 dxy = float3(0.5 / _TextureWidth, 0.5 / _TextureHeight, 0);
@@ -305,7 +333,14 @@ SubShader {
 			clip(faceColor.a - 0.001);
 		#endif
 
-  		return faceColor * input.color.a;
+			float2 colorNoiseCoords = input.position.xy * float2(1, 5) * 0.01 + float2(round(_Time[0] * 400.0) * 2, 0);
+			colorNoiseCoords = floor(colorNoiseCoords * _GlitchNoisePixelate) / _GlitchNoisePixelate;
+
+			//Color glitch
+			float colorNoise = saturate(Noise2D(colorNoiseCoords));
+			faceColor.xyz *= lerp(float3(1.0, 1.0, 1.0) ,tex2D(_GlitchColorMap, float2(colorNoise, 0.5)), _GlitchColorAmount);
+			
+  			return faceColor * input.color.a;
 		}
 
 		ENDCG

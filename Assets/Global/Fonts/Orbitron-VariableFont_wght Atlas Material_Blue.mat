@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Orbitron-VariableFont_wght Atlas Material_Blue
-  m_Shader: {fileID: 4800000, guid: 68e6db2ebdc24f95958faec2be5558d6, type: 3}
+  m_Shader: {fileID: 4800000, guid: b59e1791e2f106a42a69c6087ac3629d, type: 3}
   m_ValidKeywords:
   - GLOW_ON
   m_InvalidKeywords: []
@@ -31,6 +31,11 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _FaceTex:
         m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _GlitchColorMap:
+        m_Texture: {fileID: -3600709382087915054, guid: 44fca230c7bc5dd4ca75cddce2e11e57,
+          type: 2}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
@@ -58,6 +63,10 @@ Material:
     - _FaceDilate: -0.15
     - _FaceUVSpeedX: 0
     - _FaceUVSpeedY: 0
+    - _GlitchColorAmount: 1
+    - _GlitchNoisePixelate: 3
+    - _GlitchTextDeformAmount: 1
+    - _GlitchVertexDisplacementAmount: 0.025
     - _GlowInner: 0.061
     - _GlowOffset: 0.06
     - _GlowOuter: 1
@@ -99,6 +108,7 @@ Material:
     - _ClipRect: {r: -32767, g: -32767, b: 32767, a: 32767}
     - _EnvMatrixRotation: {r: 0, g: 0, b: 0, a: 0}
     - _FaceColor: {r: 6.7046146, g: 8.0036335, b: 7.9907775, a: 1}
+    - _GlitchTextDeformTiling: {r: 1, g: 5, b: 0, a: 0}
     - _GlowColor: {r: 0, g: 0.8527436, b: 1, a: 0.5}
     - _MaskCoord: {r: 0, g: 0, b: 32767, a: 32767}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
