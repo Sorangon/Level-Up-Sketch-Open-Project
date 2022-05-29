@@ -117,7 +117,7 @@ Material:
     - _DisplacementTiling: 2.17
     - _DstBlend: 0
     - _EnvironmentReflections: 1
-    - _GlitchAmount: 0.8
+    - _GlitchAmount: 1.6
     - _GlitchRatio: 0
     - _GlitchTiling: 2
     - _GlossMapScale: 1
