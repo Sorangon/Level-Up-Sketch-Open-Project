@@ -141,7 +141,7 @@ Material:
     - _USE_CUSTOM_VERTEX_STREAMS: 1
     - _USE_SOFT_EDGES: 0
     - _WorkflowMode: 1
-    - _ZTest: 8
+    - _ZTest: 4
     - _ZWrite: 0
     - _ZWriteControl: 0
     m_Colors:
