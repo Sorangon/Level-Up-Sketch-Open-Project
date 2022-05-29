@@ -1,13 +1,10 @@
 using UnityEngine;
 
 [ExecuteAlways]
-public class FloatShaderProperty : MonoBehaviour {
-	[SerializeField] private string _propertyId;
+public class FloatShaderProperty : ShaderProperty {
 	[SerializeField] private float _value;
 
-	[SerializeField] private SharedPropertyBlock _sharedPropertyBlock = null;
-
-	private void OnDidApplyAnimationProperties() {
+	protected override void ApplyProperty() {
 		_sharedPropertyBlock.SetFloat(_propertyId, _value);
 	}
 }

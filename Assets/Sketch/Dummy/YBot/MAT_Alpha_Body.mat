@@ -150,7 +150,7 @@ Material:
     - _BaseColor: {r: 0.084483, g: 0.2955842, b: 0.56700003, a: 1}
     - _Color: {r: 0.759, g: 0.7201875, b: 0.65549994, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _Grid_Color: {r: 0.40688497, g: 2.6082377, b: 2.4325526, a: 1}
+    - _Grid_Color: {r: 23.968628, g: 2.509804, b: 0, a: 1}
     - _RimColor: {r: 1.7437178, g: 5.992157, b: 5.118365, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []

@@ -168,8 +168,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _propertyId: _WaveMaskAmount
-  _value: 0
   _sharedPropertyBlock: {fileID: 2143147078}
+  _value: 0
 --- !u!1 &121250056
 GameObject:
   m_ObjectHideFlags: 0
@@ -716,8 +716,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _propertyId: _VoxelingAmount
-  _value: 0
   _sharedPropertyBlock: {fileID: 2143147078}
+  _value: 0
 --- !u!1 &651392189
 GameObject:
   m_ObjectHideFlags: 0
@@ -925,8 +925,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _propertyId: _WaveMaskPosition
-  _value: 0
   _sharedPropertyBlock: {fileID: 2143147078}
+  _value: 0
 --- !u!1 &764370385
 GameObject:
   m_ObjectHideFlags: 0
@@ -1030,6 +1030,7 @@ Transform:
   - {fileID: 463461399}
   - {fileID: 45568373}
   - {fileID: 762039581}
+  - {fileID: 1936103645}
   m_Father: {fileID: 2143147069}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1142,7 +1143,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Level Up +
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f23994038ecc52f429e8158be7f7d5bb, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 7e0aa8f318ef44f4e95a099c58540a36, type: 2}
@@ -1151,8 +1152,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 1845493759
-  m_fontColor: {r: 1, g: 1, b: 1, a: 0.42584684}
+    rgba: 872415231
+  m_fontColor: {r: 1, g: 1, b: 1, a: 0.4}
   m_enableVertexGradient: 1
   m_colorMode: 2
   m_fontColorGradient:
@@ -1296,8 +1297,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _propertyId: _GlitchRatio
-  _value: 0
   _sharedPropertyBlock: {fileID: 2143147078}
+  _value: 0
 --- !u!1 &1172253510
 GameObject:
   m_ObjectHideFlags: 0
@@ -1698,8 +1699,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _propertyId: _GridAmount
-  _value: 0
   _sharedPropertyBlock: {fileID: 2143147078}
+  _value: 0
 --- !u!1 &1642775466
 GameObject:
   m_ObjectHideFlags: 0
@@ -1965,6 +1966,53 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 18126508092530511}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1936103644
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1936103645}
+  - component: {fileID: 1936103646}
+  m_Layer: 6
+  m_Name: GridColor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1936103645
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1936103644}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 788072745}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1936103646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1936103644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6150a3ae8c1dd0440b20e105cb7942ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _propertyId: _Grid_Color
+  _sharedPropertyBlock: {fileID: 2143147078}
+  _value: {r: 23.96863, g: 2.509804, b: 0, a: 1}
 --- !u!1001 &2087989977
 PrefabInstance:
   m_ObjectHideFlags: 0
