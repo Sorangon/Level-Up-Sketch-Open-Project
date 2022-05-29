@@ -344,7 +344,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Updating
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f23994038ecc52f429e8158be7f7d5bb, type: 2}
   m_sharedMaterial: {fileID: 3702785882204055815, guid: f23994038ecc52f429e8158be7f7d5bb,
@@ -1359,7 +1359,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ...
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f23994038ecc52f429e8158be7f7d5bb, type: 2}
   m_sharedMaterial: {fileID: 3702785882204055815, guid: f23994038ecc52f429e8158be7f7d5bb,
@@ -2878,16 +2878,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1223073479}
     m_Modifications:
-    - target: {fileID: 4342014452906098790, guid: 0bf4638bb45eaaa46825245ad346645b,
-        type: 3}
-      propertyPath: InitialModule.startColor.maxGradient.key0.b
-      value: 0.18725489
-      objectReference: {fileID: 0}
-    - target: {fileID: 4342014452906098790, guid: 0bf4638bb45eaaa46825245ad346645b,
-        type: 3}
-      propertyPath: InitialModule.startColor.maxGradient.key0.g
-      value: 0.31575197
-      objectReference: {fileID: 0}
     - target: {fileID: 4783717096281216518, guid: 0bf4638bb45eaaa46825245ad346645b,
         type: 3}
       propertyPath: m_RootOrder
@@ -2943,6 +2933,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4940387758802981922, guid: 0bf4638bb45eaaa46825245ad346645b,
+        type: 3}
+      propertyPath: ShapeModule.m_SkinnedMeshRenderer
+      value: 
+      objectReference: {fileID: 2143147073}
     - target: {fileID: 5435117086006948083, guid: 0bf4638bb45eaaa46825245ad346645b,
         type: 3}
       propertyPath: m_Name
