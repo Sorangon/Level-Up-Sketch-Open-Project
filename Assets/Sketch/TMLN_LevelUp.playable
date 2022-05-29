@@ -139,7 +139,7 @@ MonoBehaviour:
     m_Start: 0
     m_ClipIn: 0
     m_Asset: {fileID: 1221315638734409347}
-    m_Duration: 4.883333333333333
+    m_Duration: 5.149999999999666
     m_TimeScale: 1
     m_ParentTrack: {fileID: -5908257556171236570}
     m_EaseInDuration: 0
@@ -1931,7 +1931,7 @@ MonoBehaviour:
   m_Version: 3
   m_AnimClip: {fileID: 0}
   m_Locked: 0
-  m_Muted: 0
+  m_Muted: 1
   m_CustomPlayableFullTypename: 
   m_Curves: {fileID: 0}
   m_Parent: {fileID: 11400000}
@@ -2077,24 +2077,24 @@ AnimationClip:
         outWeight: {x: 0.33333334, y: 0.06307975, z: 0.33333334}
       - serializedVersion: 3
         time: 0.65
-        value: {x: 0, y: 0.9401013, z: 0}
-        inSlope: {x: 0, y: -4.354927, z: 0}
-        outSlope: {x: 0, y: -4.354927, z: 0}
+        value: {x: 0, y: 0.93977463, z: 0}
+        inSlope: {x: 0, y: -4.351883, z: 0}
+        outSlope: {x: 0, y: -4.351883, z: 0}
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
-        time: 4.2
-        value: {x: 0, y: -6.3430724, z: 0}
-        inSlope: {x: 0, y: -1.0195165, z: 0}
-        outSlope: {x: 0, y: -1.0195165, z: 0}
+        time: 5.266667
+        value: {x: 0, y: -6.423907, z: 0}
+        inSlope: {x: 0, y: -0.7838684, z: 0}
+        outSlope: {x: 0, y: -0.7838684, z: 0}
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
-        time: 4.9
+        time: 5.9666667
         value: {x: 0, y: -7.1243453, z: 0}
         inSlope: {x: 0, y: -1.2621173, z: 0}
         outSlope: {x: 0, y: -1.2621173, z: 0}
@@ -2130,7 +2130,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 4.9
+    m_StopTime: 5.9666667
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -2168,7 +2168,7 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 4.2
+        time: 5.266667
         value: 0
         inSlope: 0
         outSlope: 0
@@ -2196,7 +2196,7 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.06307975
       - serializedVersion: 3
-        time: 4.9
+        time: 5.9666667
         value: -7.1243453
         inSlope: -1.2621173
         outSlope: -1.2621173
@@ -2233,7 +2233,7 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 4.2
+        time: 5.266667
         value: 0
         inSlope: 0
         outSlope: 0
@@ -2660,7 +2660,7 @@ MonoBehaviour:
   m_Name: RecorderClip
   m_EditorClassIdentifier: 
   enabled: 1
-  take: 4
+  take: 14
   captureEveryNthFrame: 1
   fileNameGenerator:
     m_Path:
@@ -2668,7 +2668,7 @@ MonoBehaviour:
       m_Leaf: Recordings
       m_ForceAssetFolder: 0
       m_AbsolutePath: 
-    m_FileName: movie_<Take>
+    m_FileName: Final_Low
   outputFormat: 0
   videoBitRateMode: 2
   captureAlpha: 0
@@ -2686,7 +2686,7 @@ MonoBehaviour:
       m_OutputResolution:
         m_CustomWidth: 672
         m_CustomHeight: 348
-        imageHeight: 2147483647
+        imageHeight: 480
         maxSupportedHeight: 2160
         m_AspectRatio:
           m_CustomAspectX: 1
@@ -3174,7 +3174,7 @@ MonoBehaviour:
     m_Start: 3.4166666666666665
     m_ClipIn: 0
     m_Asset: {fileID: -959552518570078005}
-    m_Duration: 1.6
+    m_Duration: 2.5333333333333328
     m_TimeScale: 1
     m_ParentTrack: {fileID: 8529484811975579106}
     m_EaseInDuration: 0
