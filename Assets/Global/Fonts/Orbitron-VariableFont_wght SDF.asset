@@ -993,10 +993,10 @@ Material:
     - _FaceDilate: -0.15
     - _FaceUVSpeedX: 0
     - _FaceUVSpeedY: 0
-    - _GlitchColorAmount: 1
+    - _GlitchColorAmount: 0
     - _GlitchNoisePixelate: 3
-    - _GlitchTextDeformAmount: 1
-    - _GlitchVertexDisplacementAmount: 0.025
+    - _GlitchTextDeformAmount: 0
+    - _GlitchVertexDisplacementAmount: 0
     - _GlowInner: 0.061
     - _GlowOffset: 0.06
     - _GlowOuter: 1
