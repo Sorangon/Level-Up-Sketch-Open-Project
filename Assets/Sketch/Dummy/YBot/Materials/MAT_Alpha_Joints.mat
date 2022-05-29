@@ -141,8 +141,8 @@ Material:
     - _UVSec: 0
     - _VoxelingAmount: 1
     - _WaveMaskAmount: 1
-    - _WaveMaskFrequency: 0.8
-    - _WaveMaskPosition: -2
+    - _WaveMaskFrequency: 0.9
+    - _WaveMaskPosition: -1.06
     - _WaveMaskSpeed: -1.5
     - _WorkflowMode: 1
     - _ZWrite: 1
@@ -153,4 +153,5 @@ Material:
     - _Grid_Color: {r: 23.968628, g: 2.509804, b: 0, a: 1}
     - _RimColor: {r: 1.7437178, g: 5.992157, b: 5.118365, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
+    - _Wave_Mask_Origin: {r: 0.2, g: 1.32, b: -0.27, a: 0}
   m_BuildTextureStacks: []

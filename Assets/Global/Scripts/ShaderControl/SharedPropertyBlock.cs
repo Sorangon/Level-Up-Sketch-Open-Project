@@ -27,6 +27,11 @@ public class SharedPropertyBlock : MonoBehaviour {
 		ApplyProperties();
 	}
 	
+	public void SetVector(string propertyId, Vector4 value) {
+		_materialPropertyBlock.SetVector(propertyId, value);
+		ApplyProperties();
+	}
+	
 	public void ApplyProperties() {
 		for (int i = 0; i < _renderers.Length; i++) {
 			_renderers[i].SetPropertyBlock(_materialPropertyBlock);
