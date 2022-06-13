@@ -182,7 +182,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _layer:
-    _frequencyRange: {x: 0.1, y: 0.5}
+    _pointsPerUnitRange: {x: 0.1, y: 0.5}
     _amplitudeRange: {x: 0, y: 0}
   _weightOverLength:
     serializedVersion: 2
@@ -362,7 +362,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _layer:
-    _frequencyRange: {x: 0.1, y: 0.5}
+    _pointsPerUnitRange: {x: 0.1, y: 0.5}
     _amplitudeRange: {x: 0, y: 0}
   _weightOverLength:
     serializedVersion: 2
@@ -687,7 +687,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _layer:
-    _frequencyRange: {x: 0.2, y: 0.6}
+    _pointsPerUnitRange: {x: 0.2, y: 0.6}
     _amplitudeRange: {x: 0, y: 0}
   _weightOverLength:
     serializedVersion: 2
@@ -1017,7 +1017,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _layer:
-    _frequencyRange: {x: 0.31, y: 0.71}
+    _pointsPerUnitRange: {x: 0.31, y: 0.71}
     _amplitudeRange: {x: 0, y: 0}
   _weightOverLength:
     serializedVersion: 2

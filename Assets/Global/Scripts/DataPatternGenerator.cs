@@ -1,24 +1,33 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
+/// <summary>
+/// Generate a perpendicular line pattern depending a path
+/// </summary>
 [RequireComponent(typeof(LineRenderer))]
 public class DataPatternGenerator : MonoBehaviour {
 	#region Classes
 	[Serializable]
 	private class NoiseLayer {
-		[SerializeField, Min(0.005f)] private Vector2 _frequencyRange = new Vector2(0.2f, 0.5f);
+		[FormerlySerializedAs("_frequencyRange")] 
+		[SerializeField, Min(0.005f)] private Vector2 _pointsPerUnitRange = new Vector2(0.2f, 0.5f);
 		[SerializeField] private Vector2 _amplitudeRange = new Vector2(0.1f, 0.3f);
 
 		/// <summary>
-		/// Generate a new point and return next distance reached
+		/// Get randomized next point distance
 		/// </summary>
 		/// <returns></returns>
 		public float GetNextPointDistance() {
-			return RandomRange(_frequencyRange.x, _frequencyRange.y);
+			return RandomRange(_pointsPerUnitRange.x, _pointsPerUnitRange.y);
 		}
 
+		/// <summary>
+		/// Returns a random vector
+		/// </summary>
+		/// <returns></returns>
 		public Vector3 GetRandomPosition() {
 			Vector3 randomVec = new Vector3(
 				RandomRange(-1f, 1f),
@@ -53,9 +62,12 @@ public class DataPatternGenerator : MonoBehaviour {
 
 	#region Currents
 	private static int _currentSeed = -15000;
+	
+	//We use static buffers to avoid multiple memory allocation each we need to generate a trail
 	private static Vector3[] _sourcePoints = new Vector3[50];
 	private static List<Vector3> _noisedPoints = new List<Vector3>(400);
 	private static List<Vector3> _snappedPoints = new List<Vector3>(600);
+	
 	private static int _currentRandomizedAxis = 0;
 	#endregion
 
@@ -77,6 +89,9 @@ public class DataPatternGenerator : MonoBehaviour {
 
 		float remainingDistance = 0f;
 		Vector3 nextPos = _sourcePoints[0];
+		
+		//---------------------------------------------------------------
+		//First we generate a noisy path sampling the source line renderer 
 		
 		for (int i = 0; i < pointsCount - 1; i++) {
 			Vector3 a = _sourcePoints[i];
@@ -100,6 +115,8 @@ public class DataPatternGenerator : MonoBehaviour {
 			
 			AddPoint(true);
 
+			//While our current segment maximum distance has not been reached
+			//we keep generating points, the higher our noise frequency is, the more iteration we will have 
 			while (currentDistance < distance) {
 				AddPoint(false);
 			}
@@ -109,6 +126,9 @@ public class DataPatternGenerator : MonoBehaviour {
 
 		_noisedPoints.Add(_sourcePoints[pointsCount - 1]);
 
+		//--------------------------------------------------------------
+		//Here we take the noised and generate a corner for each segment
+		
 		for (int i = 0; i < _noisedPoints.Count - 1; i++) {
 			Vector3 a = _noisedPoints[i];
 			Vector3 b = _noisedPoints[i + 1];
@@ -116,7 +136,10 @@ public class DataPatternGenerator : MonoBehaviour {
 			Vector3 dir = b - a;
 			Vector3 previousPoint = Vector3.zero;
 
+			//Here we get a random int to select the first axis of the corner that will generate a line
 			_currentRandomizedAxis = Random.RandomRange(0, 2);
+			
+			//For each segment, we will generate 3 corners
 			for (int j = 0; j < 2; j++) {
 				Vector3 point = dir;
 				for (int k = 0; k < 3; k++) {
@@ -124,6 +147,9 @@ public class DataPatternGenerator : MonoBehaviour {
 					point[k] = 0f;
 				}
 
+				//We get the next or previous axis with a random sign (-1 or 1)
+				//If the value is out of the array bounds we loop it
+				//This allow us to get one of the two remaining axis we need to generate our corner
 				_currentRandomizedAxis += RandomSign();
 				if (_currentRandomizedAxis > 2) {
 					_currentRandomizedAxis = 0;
@@ -138,6 +164,7 @@ public class DataPatternGenerator : MonoBehaviour {
 		
 		_snappedPoints.Add(_noisedPoints[^1]);
 		
+		//We apply our generate path data on the target line renderer
 		_target.positionCount = _snappedPoints.Count;
 		_target.SetPositions(_snappedPoints.ToArray());
 		_target.widthMultiplier = _width;

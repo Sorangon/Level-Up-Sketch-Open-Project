@@ -15,9 +15,6 @@ MonoBehaviour:
   m_Active: 1
   settings:
     renderAfterTransparents: 0
-    volumetric: 0
-    renderScale: 0.5
-    sampleSlices: 100
 --- !u!114 &-1878332245247344467
 MonoBehaviour:
   m_ObjectHideFlags: 0

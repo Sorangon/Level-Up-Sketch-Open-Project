@@ -1,6 +1,9 @@
 using TMPro;
 using UnityEngine;
 
+/// <summary>
+/// Write a filled text int a target UI Text field
+/// </summary>
 [ExecuteAlways]
 public class TextAnimator : MonoBehaviour {
 	[SerializeField, Range(0f, 1f)] private float _drawRatio = 1.0f;
@@ -11,7 +14,6 @@ public class TextAnimator : MonoBehaviour {
 	[SerializeField] private TextMeshProUGUI _textMesh = null;
 
 	private void OnDidApplyAnimationProperties() {
-		Debug.Log("Animation property update");
 		UpdateText();
 	}
 
@@ -28,8 +30,8 @@ public class TextAnimator : MonoBehaviour {
 		int charCount = Mathf.RoundToInt(_text.Length * currentT);
 			
 		if (charCount > 0) {
-			string croppedText = _text.Substring(0,charCount);
-			_textMesh.text = croppedText;
+			string text = _text.Substring(0,charCount);
+			_textMesh.text = text;
 		}else {
 			_textMesh.text = string.Empty;
 		}
