@@ -1,14 +1,5 @@
 {
   "dependencies": {
-    "com.knar.urp-fog": {
-      "version": "file:D:/Projets/Unity/Projects/Tools/URPVolumetricFog/Assets/com.knar.urp-fog",
-      "depth": 0,
-      "source": "local",
-      "dependencies": {
-        "com.unity.render-pipelines.core": "10.7.0",
-        "com.unity.render-pipelines.universal": "10.7.0"
-      }
-    },
     "com.unity.burst": {
       "version": "1.6.5",
       "depth": 1,

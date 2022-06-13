@@ -135,24 +135,3 @@ MonoBehaviour:
   endColor:
     m_OverrideState: 1
     m_Value: {r: 0.019607844, g: 0.007843139, b: 0.015856465, a: 1}
-  volumetric:
-    m_OverrideState: 0
-    m_Value: 0
-  volumetricDensity:
-    m_OverrideState: 0
-    m_Value: 1
-  volumetricDistance:
-    m_OverrideState: 0
-    m_Value: 50
-  uniformSlicesDistribution:
-    m_OverrideState: 0
-    m_Value: 0
-  shadowIntensity:
-    m_OverrideState: 0
-    m_Value: 0.5
-  bypassLightShadowDensity:
-    m_OverrideState: 0
-    m_Value: 0
-  shadowDepthOffset:
-    m_OverrideState: 0
-    m_Value: 0
