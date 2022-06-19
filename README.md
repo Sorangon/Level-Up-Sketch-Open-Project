@@ -34,8 +34,8 @@ this effect.
 
 There's a shader for each effect. You can found those into <b>"Assets/Sketch/Samples/Shaders"</b>
 
-Also the data pattern generation is managed by the script <b>"Assets/Global/Scripts/DataPatternGenerator.cs"</b>
-the script has no external dependency and could be used as it is on an external project, so feel free to import it on other projects.
+Also the data pattern generation is managed by the script <b>"Assets/Global/Scripts/DataPatternGenerator.cs"</b>.
+It has no external dependency and could be used as it is on an external project.
 
 !["Sample Scene"](\~Documentation\Sample_Scene.gif)
 
