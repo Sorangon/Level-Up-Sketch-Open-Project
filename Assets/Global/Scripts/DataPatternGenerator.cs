@@ -85,8 +85,6 @@ public class DataPatternGenerator : MonoBehaviour {
 		_snappedPoints.Clear();
 		int pointsCount = _source.GetPositions(_sourcePoints);
 
-		float maxDistance = 0f;
-
 		float remainingDistance = 0f;
 		Vector3 nextPos = _sourcePoints[0];
 		
@@ -137,7 +135,7 @@ public class DataPatternGenerator : MonoBehaviour {
 			Vector3 previousPoint = Vector3.zero;
 
 			//Here we get a random int to select the first axis of the corner that will generate a line
-			_currentRandomizedAxis = Random.RandomRange(0, 2);
+			_currentRandomizedAxis = Random.Range(0, 2);
 			
 			//For each segment, we will generate 3 corners
 			for (int j = 0; j < 2; j++) {
