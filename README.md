@@ -11,7 +11,7 @@ Feel free to explore the project, I've imported the following personal tools to 
 
 Those ones are available in the directory <b>"Assets/SorangonToolset"</b> feel free to use those one your personal or commercial projects.
 
-##Samples maps
+## Samples maps
 
 You can find 3 sample maps into <b>Assets/Scenes</b>.
 
@@ -21,7 +21,7 @@ This scene contains the entire effect submitted for the challenge,
 the whole effect is contained into the Game Object <b>PF_LevelUp</b>,
 feel free to explore this prefab content, everything is orchestrated by a Timeline.
 
-!["Complete Level Up Effect"](\~Documentation\LevelUp_Final_Wide.gif)
+!["Complete Level Up Effect"](./Documentation/LevelUp_Final_Wide.gif)
 
 ### SCN_Samples
 
@@ -37,7 +37,7 @@ There's a shader for each effect. You can found those into <b>"Assets/Sketch/Sam
 Also the data pattern generation is managed by the script <b>"Assets/Global/Scripts/DataPatternGenerator.cs"</b>.
 It has no external dependency and could be used as it is on an external project.
 
-!["Sample Scene"](\~Documentation\Sample_Scene.gif)
+!["Sample Scene"](./Documentation/Sample_Scene.gif)
 
 ### SCN_OldTests
 
@@ -49,7 +49,7 @@ The shader is still there and you can explore its source files
 - Shader <b>"Assets/Global/Shaders/UI/TMP_GlitchySDF"</b>
 - Shader Editor GUI <b>"Assets/Global/Editor/Shaders/TMP_GlitchySDFShaderGUI"</b>
 
-!["Tests"](\~Documentation\Old_Tests.gif)
+!["Tests"](./Documentation/Old_Tests.gif)
 
 
 ##Additional Informations
