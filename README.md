@@ -56,7 +56,9 @@ The shader is still there and you can explore its source files
 
 The projects runs on <b>Unity 2021.3.4f1 (LTS)</b> with <b>Universal Render Pipeline</b>.
 
-You can follow me on [Artstation](https://www.artstation.com/juliendelaunay) and [Twitter](https://twitter.com/JulienDelauna19) .
+You can follow me on [Artstation](https://www.artstation.com/juliendelaunay) and [Twitter](https://twitter.com/JulienDelauna19).
+See the effect progression and breakdown on [RealTimeVFX](https://realtimevfx.com/t/sorangon-sketch-52/20095) 
+
 
 ## Credits
 
