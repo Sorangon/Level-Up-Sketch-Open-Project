@@ -52,13 +52,13 @@ The shader is still there and you can explore its source files
 !["Tests"](./Documentation/Old_Tests.gif)
 
 
-##Additional Informations
+## Additional Informations
 
 The projects runs on <b>Unity 2021.3.4f1 (LTS)</b> with <b>Universal Render Pipeline</b>.
 
 You can follow me on [Artstation](https://www.artstation.com/juliendelaunay) and [Twitter](https://twitter.com/JulienDelauna19) .
 
-##Credits
+## Credits
 
 Fonts
 - [Orbitron](https://fonts.google.com/specimen/Orbitron) 
